@@ -51,10 +51,10 @@
                     <a href="{{ route('user.edit', $item->id) }}" class="btn btn-info">
                       Edit
                     </a>
-                    <a href="{{ route('user.edit', $item->id) }}" class="btn btn-warning">
-                      {{ $item->suspand == 1 ? 'unsuspand' : 'suspand' }}
+                    <a href="{{ route('user.suspand', $item->id) }}" class="btn btn-warning">
+                      {{ $item->suspend == 1 ? 'unsuspand' : 'suspand' }}
                     </a>
-                    <a href="{{ route('user.edit', $item->id) }}" class="btn btn-danger">
+                    <a href="{{ route('user.delete', $item->id) }}" class="btn btn-danger">
                       Delete
                     </a>
                   </div>

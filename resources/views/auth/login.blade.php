@@ -5,7 +5,7 @@
     <img src="{{ asset('img/logo.png') }}" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
   </div>
   <!-- /.login-logo -->
-  <div class="card">
+  <div class="card elevation-4">
     <div class="card-body login-card-body">
       <p class="login-box-msg">Menu Login</p>
       <form action="{{ route('login') }}" method="post">

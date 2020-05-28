@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\model\Salary;
 use App\User;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -22,7 +21,7 @@ class UserController extends Controller
    */
   public function index()
   {
-    $users = User::where('role', 5)->get();
+    $users = User::where('role', 5)->where('delete', 0)->get();
 
     $data = [
       'users' => $users
@@ -70,17 +69,6 @@ class UserController extends Controller
     $user->save();
 
     return redirect()->route('user.index');
-  }
-
-  /**
-   * Display the specified resource.
-   *
-   * @param Salary $salary
-   * @return Response
-   */
-  public function show()
-  {
-    //
   }
 
   /**
@@ -167,10 +155,34 @@ class UserController extends Controller
   /**
    * Remove the specified resource from storage.
    *
-   * @return void
+   * @param $id
+   * @return RedirectResponse|void
    */
-  public function destroy()
+  public function suspand($id)
   {
-    //
+    $user = User::find($id);
+    if ($user->suspend == 1) {
+      $user->suspend = 0;
+    } else {
+      $user->suspend = 1;
+    }
+    $user->save();
+
+    return redirect()->Back();
+  }
+
+  /**
+   * Remove the specified resource from storage.
+   *
+   * @param $id
+   * @return RedirectResponse|void
+   */
+  public function delete($id)
+  {
+    $user = User::find($id);
+    $user->delete = 1;
+    $user->save();
+
+    return redirect()->Back();
   }
 }

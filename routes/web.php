@@ -33,17 +33,17 @@ Route::group(['prefix' => 'user', 'as' => 'user.'], function () {
   Route::get('/', 'UserController@index')->name('index')->middleware('auth', 'role:1|2|3|4');
   Route::get('/create', 'UserController@create')->name('create')->middleware('auth', 'role:1|2|3|4');
   Route::post('/store', 'UserController@store')->name('store')->middleware('auth', 'role:1|2|3|4');
-  Route::get('/show', 'UserController@show')->name('show')->middleware('auth');
   Route::post('/edit', 'UserController@findAndChange')->name('findAndChange')->middleware('auth', 'role:1|2|3|4');
   Route::get('/edit/{id}', 'UserController@edit')->name('edit')->middleware('auth', 'role:1|2|3|4');
   Route::post('/update/{id}', 'UserController@update')->name('update')->middleware('auth', 'role:1|2|3|4');
-  Route::get('/delete', 'UserController@delete')->name('delete')->middleware('auth', 'role:1|2|3|4');
+  Route::get('/suspand/{id}', 'UserController@suspand')->name('suspand')->middleware('auth', 'role:1|2|3|4');
+  Route::get('/delete/{id}', 'UserController@destroy')->name('delete')->middleware('auth', 'role:1|2|3|4');
 });
 
 Route::group(['prefix' => 'absent', 'as' => 'absent.'], function () {
   Route::get('/', 'AbsentController@index')->name('index')->middleware('auth', 'role:1|2|3|4');
   Route::post('/store', 'AbsentController@store')->name('store')->middleware('auth', 'role:1|2|3|4');
-  Route::post('/show', 'AbsentController@show')->name('show')->middleware('auth');
+  Route::post('/show', 'AbsentController@show')->name('show')->middleware('auth', 'role:1|2|3|4');
   Route::post('/update/{id}', 'AbsentController@update')->name('update')->middleware('auth', 'role:1|2|3|4');
   Route::get('/delete', 'AbsentController@delete')->name('delete')->middleware('auth', 'role:1|2|3|4');
 });

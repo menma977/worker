@@ -81,7 +81,7 @@ class LoginController extends Controller
    */
   protected function credentials(Request $request): array
   {
-    return array_merge($request->only($this->username(), 'password'));
+    return array_merge($request->only($this->username(), 'password'), ['suspend' => [0], 'delete' => [0]]);
   }
 
   /**
@@ -93,8 +93,8 @@ class LoginController extends Controller
     $errors = [$this->username() => trans('auth.failed')];
     $user = User::where($this->username(), $request->{$this->username()})->first();
 
-    if ($user && Hash::check($request->password, $user->password) && $user->suspand == 1) {
-      $errors = [$this->username() => trans('Akun Anda telah ditangguhkan. silakan hubungi admin')];
+    if ($user && Hash::check($request->password, $user->password) && ($user->suspend == 1 || $user->delete == 1)) {
+      $errors = [$this->username() => trans('Akun Anda telah ditangguhkan Atau dihapus.')];
     }
 
     if ($request->expectsJson()) {

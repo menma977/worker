@@ -11,6 +11,7 @@ try {
   window.$ = window.jQuery = require('jquery');
   window.toastr = require('admin-lte/plugins/toastr/toastr.min');
   window.sweetAlert = require('admin-lte/plugins/sweetalert2/sweetalert2.min')
+  window.chart = require('admin-lte/plugins/chart.js/Chart.min')
 
   require('bootstrap');
   require('admin-lte');
@@ -21,6 +22,7 @@ try {
   require('admin-lte/plugins/select2/js/select2.full.min');
 
   require('admin-lte/plugins/daterangepicker/daterangepicker');
+
 
 } catch (e) {
 }

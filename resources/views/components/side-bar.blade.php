@@ -31,6 +31,7 @@
             </p>
           </a>
         </li>
+        @admin
         <li class="nav-item has-treeview {{ request()->is(['user', 'user/*']) ? 'menu-open' : '' }}">
           <a href="#" class="nav-link {{ request()->is(['user', 'user/*']) ? 'active' : '' }}">
             <i class="nav-icon fas fa-users"></i>
@@ -73,6 +74,17 @@
             </p>
           </a>
         </li>
+        @endadmin
+        @spv
+        <li class="nav-item">
+          <a href="{{ route('absent.index') }}" class="nav-link {{ request()->is('absent') ? 'active' : '' }}">
+            <i class="nav-icon fas fa-clipboard-list"></i>
+            <p>
+              absent
+            </p>
+          </a>
+        </li>
+        @endspv
         <li class="nav-item">
           <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="nav-link">
             <i class="nav-icon fas fa-power-off"></i>

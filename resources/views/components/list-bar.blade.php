@@ -1,3 +1,3 @@
-<aside class="control-sidebar control-sidebar-light">
+{{--<aside class="control-sidebar control-sidebar-light">--}}
 
-</aside>
+{{--</aside>--}}

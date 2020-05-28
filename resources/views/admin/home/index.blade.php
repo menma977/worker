@@ -31,7 +31,7 @@
           <div class="info-box-number">{{ $unAbsens->count() }}</div>
 
           <div class="progress">
-            <div class="progress-bar" style="width: {{ ($unAbsens->where('absnes', null)->count() / $users->count()) * 100 }}%"></div>
+            <div class="progress-bar" style="width: {{ ($unAbsens->count() / $users->count()) * 100 }}%"></div>
           </div>
           <div class="progress-description">
             {{ number_format(($unAbsens->count() / $users->count()) * 100 ,2) }}% dari keseluruhan Pegawai ({{ $users->count() }})
@@ -50,7 +50,7 @@
           <div class="info-box-number">{{ $inAbsens->count() }}</div>
 
           <div class="progress">
-            <div class="progress-bar" style="width: {{ ($inAbsens->where('absnes', '!=', null)->count() / $users->count()) * 100 }}%"></div>
+            <div class="progress-bar" style="width: {{ ($inAbsens->count() / $users->count()) * 100 }}%"></div>
           </div>
           <div class="progress-description">
             {{ number_format(($inAbsens->count() / $users->count()) * 100 ,2) }}% dari keseluruhan Pegawai ({{ $users->count() }})
@@ -59,6 +59,7 @@
       </div>
     </div>
   </div>
+  @admin
   <div class="card card-outline card-danger">
     <div class="card-header">
       <h3 class="card-title">Input Absensi</h3>
@@ -100,6 +101,7 @@
       </div>
     </form>
   </div>
+  @endadmin
   <div class="row">
     <div class="col-md-6">
       <div class="card card-outline card-warning">

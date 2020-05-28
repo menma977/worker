@@ -55,9 +55,10 @@ class HomeController extends Controller
     } else if ($user->role == 3) {
       $data = [
         'users' => $users,
-        'absensUser' => $absensUser,
+        'unAbsens' => $absensUser->whereNull('absens'),
+        'inAbsens' => $absensUser->whereNotNull('absens')
       ];
-      return view('spv.home.index', $data);
+      return view('admin.home.index', $data);
     } else {
 
       return view('home');

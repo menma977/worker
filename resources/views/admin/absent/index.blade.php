@@ -155,10 +155,10 @@
           method: 'POST',
           headers: {
             'X-CSRF-Token': $('meta[name=csrf-token]').attr('content'),
-            'Content-Type' : 'application/json',
+            'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            time : $('#absensTime{{ $item->id }}').val(),
+            time: $('#absensTime{{ $item->id }}').val(),
           })
         }).then(responseJson => {
           return responseJson.json();
