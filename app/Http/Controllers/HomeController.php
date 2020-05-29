@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\model\Absent;
 use App\model\SalaryList;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Facades\Auth;
 
@@ -60,8 +61,41 @@ class HomeController extends Controller
       ];
       return view('admin.home.index', $data);
     } else {
+      $totalSalary = [0];
+      $totalUser = [0];
+      $dateSet = [];
+      $absens = Absent::whereYear('created_at', Carbon::now())->get();
+      $absens->map(static function ($item) {
+        $item->user = User::find($item->user_id);
+        $item->salary = SalaryList::find($item->id);
+        return $item;
+      });
 
-      return view('home');
+      $month = Carbon::parse($absens->first()->created_at)->format('m');
+      $i = 0;
+      $countUser = 0;
+      foreach ($absens as $item) {
+        $monthNow = Carbon::parse($item->created_at)->format('m');
+        if ($month == $monthNow) {
+          $dateSet[$i] = $month;
+          $totalSalary[$i] += $item->salary->total;
+          $totalUser[$i] += ($countUser + 1);
+        } else {
+          $month = $monthNow;
+          $countUser = 0;
+          $i++;
+          $totalSalary[$i] = $item->salary->total;
+          $totalUser[$i] = $countUser;
+          $dateSet[$i] = $month;
+        }
+      }
+
+      $data = [
+        'salary' => $totalSalary,
+        'users' => $totalUser,
+        'date' => $dateSet
+      ];
+      return view('home', $data);
     }
   }
 }
