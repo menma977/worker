@@ -71,7 +71,11 @@ class HomeController extends Controller
         return $item;
       });
 
-      $month = Carbon::parse($absens->first()->created_at)->format('m');
+      if ($absens->first()) {
+        $month = Carbon::parse($absens->first()->created_at)->format('m');
+      } else {
+        $month = Carbon::now()->format('m');
+      }
       $i = 0;
       $countUser = 0;
       foreach ($absens as $item) {
