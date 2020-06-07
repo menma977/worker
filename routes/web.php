@@ -52,6 +52,6 @@ Route::group(['prefix' => 'salary', 'as' => 'salary.'], function () {
   Route::get('/', 'SalaryController@index')->name('index')->middleware('auth', 'role:1|2|3|4');
   Route::post('/store', 'SalaryController@store')->name('store')->middleware('auth', 'role:1|2|3|4');
   Route::post('/show', 'SalaryController@show')->name('show')->middleware('auth', 'role:1|2|3|4');
-  Route::post('/update/{id}', 'SalaryController@update')->name('update')->middleware('auth', 'role:1|2|3|4');
+  Route::post('/update', 'SalaryController@update')->name('update')->middleware('auth', 'role:1|2|3|4');
   Route::get('/delete', 'SalaryController@delete')->name('delete')->middleware('auth', 'role:1|2|3|4');
 });
