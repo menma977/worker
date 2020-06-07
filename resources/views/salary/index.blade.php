@@ -16,7 +16,15 @@
             <div class="card-body">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Edit Gaji</label>
-                    <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                    <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Gaji">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Edit Lembur</label>
+                    <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Lembur">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Edit Tunjangan</label>
+                    <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Tunjangan">
                 </div>
             </div>
             <div class="card-footer">
