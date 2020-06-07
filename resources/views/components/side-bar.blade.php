@@ -74,6 +74,14 @@
             </p>
           </a>
         </li>
+        <li class="nav-item">
+          <a href="{{ route('salary.index') }}" class="nav-link {{ request()->is('salary') ? 'active' : '' }}">
+            <i class="nav-icon fas fa-money-bill"></i>
+            <p>
+              Salary
+            </p>
+          </a>
+        </li>
         @endadmin
         @spv
         <li class="nav-item">
@@ -81,6 +89,14 @@
             <i class="nav-icon fas fa-clipboard-list"></i>
             <p>
               absent
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{{ route('salary.index') }}" class="nav-link {{ request()->is('salary') ? 'active' : '' }}">
+            <i class="nav-icon fa fa-money"></i>
+            <p>
+              Salary
             </p>
           </a>
         </li>
