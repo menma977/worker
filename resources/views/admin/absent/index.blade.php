@@ -139,6 +139,8 @@
 @section('js')
   <script>
     $(function () {
+      $('.select2').select2();
+
       $('#listUser').DataTable({
         "paging": true,
         "lengthChange": true,

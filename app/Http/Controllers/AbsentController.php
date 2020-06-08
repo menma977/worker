@@ -33,6 +33,12 @@ class AbsentController extends Controller
       }
     }
 
+    $absens = Absent::all()->groupBy(function ($item) {
+      return Carbon::parse($item->created_at)->format('m-Y');
+    });
+
+    dump($absens);
+
     $absens = Absent::whereYear('created_at', date('Y'))->whereMonth('created_at', date('m'))->get();
     $absens->map(function ($item) {
       $item->user = User::where('id', $item->user_id)->first();
