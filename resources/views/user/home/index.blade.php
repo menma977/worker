@@ -58,10 +58,10 @@
               <th>Absen (Jam)</th>
               <th>Keluar (Jam)</th>
               <th>Lembur (Jam)</th>
-              <th>Gaji</th>
+              {{-- <th>Gaji</th>
               <th>Tunjang</th>
               <th>Lembur</th>
-              <th>Total</th>
+              <th>Total</th> --}}
             </tr>
             </thead>
             <tbody>
