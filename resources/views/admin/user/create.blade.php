@@ -51,28 +51,42 @@
             <div class="form-group">
               <label for="name">Name</label>
               <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" placeholder="Enter Name" value="{{ old('name') }}">
-              @error('code')
+              @error('name')
               <p class="text-danger">{{ $message }}</p>
               @enderror
             </div>
             <div class="form-group">
               <label for="username">Username</label>
               <input type="text" class="form-control @error('username') is-invalid @enderror" id="username" name="username" placeholder="Enter username" value="{{ old('username') }}">
-              @error('code')
+              @error('username')
               <p class="text-danger">{{ $message }}</p>
               @enderror
             </div>
             <div class="form-group">
               <label for="password">Password</label>
               <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" placeholder="Enter Password" value="{{ old('password') }}">
-              @error('code')
+              @error('password')
               <p class="text-danger">{{ $message }}</p>
               @enderror
             </div>
             <div class="form-group">
               <label for="c_password">Confirm Password</label>
               <input type="password" class="form-control @error('c_password') is-invalid @enderror" id="c_password" name="c_password" placeholder="Enter Confirm Password" value="{{ old('c_password') }}">
-              @error('code')
+              @error('c_password')
+              <p class="text-danger">{{ $message }}</p>
+              @enderror
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input type="number" class="form-control @error('phone') is-invalid @enderror" id="phone" name="phone" placeholder="Enter Phone Number" value="{{ old('phone') }}">
+              @error('phone')
+              <p class="text-danger">{{ $message }}</p>
+              @enderror
+            </div>
+            <div class="form-group">
+              <label for="address">address</label>
+              <input type="text" class="form-control @error('address') is-invalid @enderror" id="address" name="address" placeholder="Enter Address" value="{{ old('address') }}">
+              @error('address')
               <p class="text-danger">{{ $message }}</p>
               @enderror
             </div>
@@ -111,6 +125,14 @@
 
       @error('c_password')
       toastr.error('{{ $message }}')
+      @enderror
+
+      @error('phone')
+      toastr.error('{{ str_replace('phone', 'No Telpon', $message) }}')
+      @enderror
+
+      @error('address')
+      toastr.error('{{ str_replace('address', 'Alamat', $message) }}')
       @enderror
     });
   </script>

@@ -21,6 +21,8 @@ class UserSeeder extends Seeder
       'code' => 'xx1',
       'benefit' => 0,
       'suspend' => 0,
+      'phone' => '',
+      'address' => '',
       'delete' => 0,
     ]);
 
@@ -31,6 +33,8 @@ class UserSeeder extends Seeder
       'password' => Hash::make('hrd'),
       'code' => 'xx2',
       'benefit' => 0,
+      'phone' => '',
+      'address' => '',
       'suspend' => 0,
       'delete' => 0,
     ]);
@@ -42,6 +46,8 @@ class UserSeeder extends Seeder
       'password' => Hash::make('spv'),
       'code' => 'xx3',
       'benefit' => 0,
+      'phone' => '',
+      'address' => '',
       'suspend' => 0,
       'delete' => 0,
     ]);
@@ -53,6 +59,8 @@ class UserSeeder extends Seeder
       'password' => Hash::make('admin'),
       'code' => 'xx4',
       'benefit' => 0,
+      'phone' => '',
+      'address' => '',
       'suspend' => 0,
       'delete' => 0,
     ]);
@@ -64,6 +72,8 @@ class UserSeeder extends Seeder
       'password' => Hash::make('user'),
       'code' => 5,
       'benefit' => 0,
+      'phone' => '',
+      'address' => '',
       'suspend' => 0,
       'delete' => 0,
     ]);

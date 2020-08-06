@@ -54,7 +54,9 @@ class UserController extends Controller
       'name' => 'required|string',
       'username' => 'required|string|unique:users',
       'password' => 'required|string|min:6|same:c_password',
-      'c_password' => 'required|string|min:6|same:password'
+      'c_password' => 'required|string|min:6|same:password',
+      'phone' => 'required|numeric|min:10',
+      'address' => 'required|string|min:6'
     ]);
 
     $user = new user();
@@ -66,6 +68,8 @@ class UserController extends Controller
     $user->suspend = 0;
     $user->password = Hash::make($request->password);
     $user->benefit = $request->status;
+    $user->phone = $request->phone;
+    $user->address = $request->address;
     $user->save();
 
     return redirect()->route('user.index');
@@ -124,6 +128,8 @@ class UserController extends Controller
     $this->validate($request, [
       'name' => 'required|string',
       'status' => 'required|numeric',
+      'phone' => 'required|numeric|min:10',
+      'address' => 'required|string|min:6'
     ]);
     $user = user::find($id);
     if ($request->password) {
@@ -147,6 +153,8 @@ class UserController extends Controller
     }
     $user->name = $request->name;
     $user->benefit = $request->status;
+    $user->phone = $request->phone;
+    $user->address = $request->address;
     $user->save();
 
     return redirect()->route('user.index');

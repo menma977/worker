@@ -16,6 +16,8 @@ use Illuminate\Notifications\Notifiable;
  * @property string username
  * @property string password
  * @property string code
+ * @property int phone
+ * @property string address
  * @property string suspend
  * @property string delete
  */
@@ -36,6 +38,8 @@ class User extends Authenticatable
     'password',
     'code',
     'suspend',
+    'phone',
+    'address',
     'delete'
   ];
 

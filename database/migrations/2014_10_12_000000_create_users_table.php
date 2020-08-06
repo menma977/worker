@@ -21,6 +21,8 @@ class CreateUsersTable extends Migration
       $table->string('password');
       $table->string('code')->unique();
       $table->integer('benefit');
+      $table->text('phone')->nullable();
+      $table->text('address')->nullable();
       $table->integer('suspend');
       $table->integer('delete');
       $table->rememberToken();

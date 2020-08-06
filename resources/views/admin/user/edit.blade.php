@@ -82,6 +82,20 @@
             <p class="text-info">
               leave blank if unchanged
             </p>
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input type="number" class="form-control @error('phone') is-invalid @enderror" id="phone" name="phone" placeholder="Enter Phone Number" value="{{ old('phone') ? old('phone') : $user->phone }}">
+              @error('phone')
+              <p class="text-danger">{{ $message }}</p>
+              @enderror
+            </div>
+            <div class="form-group">
+              <label for="address">address</label>
+              <input type="text" class="form-control @error('address') is-invalid @enderror" id="address" name="address" placeholder="Enter Address" value="{{ old('address') ? old('address') : $user->address }}">
+              @error('address')
+              <p class="text-danger">{{ $message }}</p>
+              @enderror
+            </div>
           </div>
           <div class="card-footer">
             <button type="submit" class="btn btn-primary">Save</button>
@@ -117,6 +131,14 @@
 
       @error('c_password')
       toastr.error('{{ $message }}')
+      @enderror
+
+      @error('phone')
+      toastr.error('{{ str_replace('phone', 'No Telpon', $message) }}')
+      @enderror
+
+      @error('address')
+      toastr.error('{{ str_replace('address', 'Alamat', $message) }}')
       @enderror
     });
   </script>
