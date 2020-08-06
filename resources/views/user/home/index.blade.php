@@ -21,7 +21,7 @@
 
 @section('content')
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-12">
       <div class="info-box elevation-2">
         <span class="info-box-icon bg-success">
           <i class="fas fa-user-check"></i>
@@ -33,7 +33,7 @@
         </div>
       </div>
     </div>
-    <div class="col-md-6">
+    {{-- <div class="col-md-6">
       <div class="info-box elevation-2">
         <span class="info-box-icon bg-info">
           <i class="fas fa-hand-holding-usd"></i>
@@ -44,7 +44,7 @@
           <span class="info-box-number">Rp {{ number_format($absens->sum('salary.total'), 2, ',', '.') }}</span>
         </div>
       </div>
-    </div>
+    </div> --}}
     <div class="col-md-12">
       <div class="card card-outline card-danger elevation-2">
         <div class="card-header">
@@ -58,10 +58,10 @@
               <th>Absen (Jam)</th>
               <th>Keluar (Jam)</th>
               <th>Lembur (Jam)</th>
-              <th>Gaji</th>
+              {{-- <th>Gaji</th>
               <th>Tunjang</th>
               <th>Lembur</th>
-              <th>Total</th>
+              <th>Total</th> --}}
             </tr>
             </thead>
             <tbody>
@@ -71,10 +71,10 @@
                 <td>{{ $item->on }}</td>
                 <td>{{ $item->off }}</td>
                 <td>{{ $item->over_time }} Jam</td>
-                <td>Rp {{ number_format($item->salary->salary, 2, ',', '.') }}</td>
+                {{-- <td>Rp {{ number_format($item->salary->salary, 2, ',', '.') }}</td>
                 <td>Rp {{ number_format($item->salary->benefit, 2, ',', '.') }}</td>
                 <td>Rp {{ number_format($item->salary->over_time, 2, ',', '.') }}</td>
-                <td>Rp {{ number_format($item->salary->total, 2, ',', '.') }}</td>
+                <td>Rp {{ number_format($item->salary->total, 2, ',', '.') }}</td> --}}
               </tr>
             @endforeach
             </tbody>
@@ -84,10 +84,10 @@
               <th>Absen (Jam)</th>
               <th>Keluar (Jam)</th>
               <th>Lembur (Jam)</th>
-              <th>Gaji</th>
+              {{-- <th>Gaji</th>
               <th>Tunjang</th>
               <th>Lembur</th>
-              <th>Total</th>
+              <th>Total</th> --}}
             </tr>
             </tfoot>
           </table>

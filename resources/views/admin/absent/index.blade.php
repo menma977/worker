@@ -59,9 +59,9 @@
               <th>Nama</th>
               <th>Masuk Jam</th>
               <th>Keluar Jam</th>
-              <th>Gaji</th>
+              {{-- <th>Gaji</th>
               <th>Lembur</th>
-              <th>Tanggungan</th>
+              <th>Tanggungan</th> --}}
               <th>Edit</th>
             </tr>
             </thead>
@@ -73,9 +73,9 @@
                 <td>{{ $item->user->name }}</td>
                 <td>{{ $item->on }}</td>
                 <td>{{ $item->off }}</td>
-                <td>Rp {{ number_format($item->salary->salary, 0, ',', '.') }}</td>
+                {{-- <td>Rp {{ number_format($item->salary->salary, 0, ',', '.') }}</td>
                 <td>Rp {{ number_format($item->salary->over_time, 0, ',', '.') }}</td>
-                <td>Rp {{ number_format($item->salary->benefit, 0, ',', '.') }}</td>
+                <td>Rp {{ number_format($item->salary->benefit, 0, ',', '.') }}</td> --}}
                 <td>
                   <button type="button" class="btn btn-block btn-warning btn-xs" data-toggle="modal" data-target="#modal-pop{{ $loop->index + 1 }}">
                     Edit
@@ -123,9 +123,9 @@
               <th>Nama</th>
               <th>Masuk Jam</th>
               <th>Keluar Jam</th>
-              <th>Gaji</th>
+              {{-- <th>Gaji</th>
               <th>Lembur</th>
-              <th>Tanggungan</th>
+              <th>Tanggungan</th> --}}
               <th>Edit</th>
             </tr>
             </tfoot>
